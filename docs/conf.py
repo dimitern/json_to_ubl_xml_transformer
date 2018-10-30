@@ -21,9 +21,9 @@
 import os
 import sys
 
-import json_to_ubl_xml_transformer
-
 sys.path.insert(0, os.path.abspath(".."))
+
+import json_to_ubl_xml_transformer  # isort:skip # noqa
 
 
 # -- General configuration ---------------------------------------------
