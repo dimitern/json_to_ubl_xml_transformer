@@ -1,8 +1,10 @@
 alabaster==0.7.12
+appdirs==1.4.3
 argh==0.26.2
 atomicwrites==1.2.1
 attrs==18.2.0
 Babel==2.6.0
+black==18.9b0
 bleach==3.0.2
 bumpversion==0.5.3
 certifi==2018.10.15
@@ -19,6 +21,8 @@ Jinja2==2.10
 MarkupSafe==1.0
 mccabe==0.6.1
 more-itertools==4.3.0
+mypy==0.641
+mypy-extensions==0.4.1
 packaging==18.0
 pathtools==0.1.2
 pkginfo==1.4.2
@@ -43,6 +47,7 @@ toml==0.10.0
 tox==3.5.2
 tqdm==4.28.1
 twine==1.12.1
+typed-ast==1.1.0
 urllib3==1.24
 virtualenv==16.0.0
 watchdog==0.9.0
