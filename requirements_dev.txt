@@ -4,7 +4,6 @@ argh==0.26.2
 atomicwrites==1.2.1
 attrs==18.2.0
 Babel==2.6.0
-black==18.9b0
 bleach==3.0.2
 bumpversion==0.5.3
 certifi==2018.10.15
@@ -17,7 +16,6 @@ flake8==3.5.0
 idna==2.7
 imagesize==1.1.0
 Jinja2==2.10
--e git+https://github.com/dimitern/json_to_ubl_xml_transformer.git@1859edf4eb46532320a31d953aeb1273a1759c3b#egg=json_to_ubl_xml_transformer
 MarkupSafe==1.0
 mccabe==0.6.1
 more-itertools==4.3.0

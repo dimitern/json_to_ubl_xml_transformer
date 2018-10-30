@@ -5,7 +5,7 @@
 
 import pytest
 from click.testing import CliRunner
-from json_to_ubl_xml_transformer import cli, json_to_ubl_xml_transformer
+from json_to_ubl_xml_transformer import cli
 
 
 @pytest.fixture
