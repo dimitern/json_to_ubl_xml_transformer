@@ -5,7 +5,7 @@ Credits
 Development Lead
 ----------------
 
-* Dimiter Naydenov <dimiter@naydenov.net>
+* Dimiter Naydenov <dimiter@naydenov.net>
 
 Contributors
 ------------

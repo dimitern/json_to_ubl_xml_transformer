@@ -4,11 +4,8 @@
 """Tests for `json_to_ubl_xml_transformer` package."""
 
 import pytest
-
 from click.testing import CliRunner
-
-from json_to_ubl_xml_transformer import json_to_ubl_xml_transformer
-from json_to_ubl_xml_transformer import cli
+from json_to_ubl_xml_transformer import cli, json_to_ubl_xml_transformer
 
 
 @pytest.fixture
@@ -32,7 +29,7 @@ def test_command_line_interface():
     runner = CliRunner()
     result = runner.invoke(cli.main)
     assert result.exit_code == 0
-    assert 'json_to_ubl_xml_transformer.cli.main' in result.output
-    help_result = runner.invoke(cli.main, ['--help'])
+    assert "json_to_ubl_xml_transformer.cli.main" in result.output
+    help_result = runner.invoke(cli.main, ["--help"])
     assert help_result.exit_code == 0
-    assert '--help  Show this message and exit.' in help_result.output
+    assert "--help  Show this message and exit." in help_result.output
