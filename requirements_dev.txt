@@ -19,8 +19,6 @@ Jinja2==2.10
 MarkupSafe==1.0
 mccabe==0.6.1
 more-itertools==4.3.0
-mypy==0.641
-mypy-extensions==0.4.1
 packaging==18.0
 pathtools==0.1.2
 pkginfo==1.4.2
