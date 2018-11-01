@@ -42,7 +42,7 @@ tox==3.5.3
 tqdm==4.28.1
 twine==1.12.1
 urllib3==1.24
-virtualenv==16.0.0
+virtualenv==16.1.0
 watchdog==0.9.0
 webencodings==0.5.1
 xmler==0.2.0
