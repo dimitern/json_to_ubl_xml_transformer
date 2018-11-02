@@ -26,7 +26,7 @@ py==1.7.0
 pycodestyle==2.4.0
 pyflakes==2.0.0
 Pygments==2.2.0
-pyparsing==2.2.2
+pyparsing==2.3.0
 pytest==3.9.3
 pytest-cov==2.6.0
 pytest-runner==4.2
@@ -44,7 +44,7 @@ tox==3.5.3
 tqdm==4.28.1
 twine==1.12.1
 urllib3==1.24
-virtualenv==16.0.0
+virtualenv==16.1.0
 watchdog==0.9.0
 webencodings==0.5.1
 xmler==0.2.0
