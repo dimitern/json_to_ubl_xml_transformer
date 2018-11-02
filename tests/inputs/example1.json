@@ -1,0 +1,600 @@
+﻿{
+    "Invoice": {
+        "ID": "2018210",
+        "IssueDate": "2018-02-08",
+        "DueDate": "2018-03-07",
+        "InvoiceTypeCode": "380",
+        "Note": "Document level Note",
+        "TaxPointDate": "2018-02-08",
+        "DocumentCurrencyCode": "SEK",
+        "TaxCurrencyCode": "EUR",
+        "AccountingCost": "BES, 87392",
+        "BuyerReference": "Buyer reference",
+        "InvoicePeriod": {
+            "StartDate": "2018-02-01",
+            "EndDate": "2018-02-07"
+        },
+        "OrderReference": {
+            "ID": "20180117",
+            "SalesOrderID": "INK/0117/JM"
+        },
+        "BillingReference": [
+            {
+                "InvoiceDocumentReference": {
+                    "ID": "Preceding invoice no.1",
+                    "IssueDate": "2018-01-31"
+                }
+            },
+            {
+                "InvoiceDocumentReference": {
+                    "ID": "Preceding invoice no.2"
+                }
+            }
+        ],
+        "DespatchDocumentReference": {
+            "ID": "Despatch Feb 01-07"
+        },
+        "ReceiptDocumentReference": {
+            "ID": "Receipt 01-07"
+        },
+        "OriginatorDocumentReference": {
+            "ID": "Tender 2017-12, lot no. 3"
+        },
+        "ContractDocumentReference": {
+            "ID": "2017-123"
+        },
+        "AdditionalDocumentReference": [
+            {
+                "ID": {
+                    "_schemeID": "AFL",
+                    "__text": "DR35141"
+                }
+            },
+            {
+                "ID": {
+                    "_schemeID": "AFL",
+                    "__text": "130-DR35141"
+                },
+                "DocumentTypeCode": "130",
+                "DocumentDescription": "Supporting document"
+            },
+            {
+                "ID": "Timelist 1",
+                "DocumentDescription": "Time list",
+                "Attachment": {
+                    "EmbeddedDocumentBinaryObject": {
+                        "_mimeCode": "application/pdf",
+                        "_filename": "Source PDF",
+                        "__text": "dwvjkbnwdbskdnvksndvknksndkvnbksbndvkbnskbdvkbskbdvkskjdvkjnsdjknvjksndjkvskjkjeorjweiojfiejnrkjbvkjebnfvnjksndfjnvjkndsfjknb"
+                    }
+                }
+            },
+            {
+                "ID": {
+                    "_schemeID": "AFL",
+                    "__text": "Example 1"
+                },
+                "Attachment": {
+                    "ExternalReference": {
+                        "URI": "http://www.example.com/index.html"
+                    }
+                }
+            }
+        ],
+        "ProjectReference": {
+            "ID": "Project 99"
+        },
+        "AccountingSupplierParty": {
+            "Party": {
+                "EndpointID": {
+                    "_schemeID": "0007",
+                    "__text": "1234567890"
+                },
+                "PartyIdentification": [
+                    {
+                        "EndpointID": {
+                            "_schemeID": "0088",
+                            "__text": "1230123456789"
+                        }
+                    },
+                    {
+                        "ID": "UBI-Chain"
+                    }
+                ],
+                "PartyName": {
+                    "Name": "Ubiquitous Chain"
+                },
+                "PostalAddress": {
+                    "StreetName": "Streetname-line1",
+                    "AdditionalStreetName": "AddStreetname-line2",
+                    "CityName": "Big City",
+                    "PostalZone": "11122",
+                    "CountrySubentity": "Delstat A",
+                    "AddressLine": {
+                        "Line": "Line3"
+                    },
+                    "Country": {
+                        "IdentificationCode": "SE"
+                    }
+                },
+                "PartyTaxScheme": [
+                    {
+                        "CompanyID": "SE123456789001",
+                        "TaxScheme": {
+                            "ID": "VAT"
+                        }
+                    },
+                    {
+                        "CompanyID": "Godkänd för F-skatt",
+                        "TaxScheme": {
+                            "ID": "TAX"
+                        }
+                    }
+                ],
+                "PartyLegalEntity": {
+                    "RegistrationName": "The Ubiquitous Chain Sweden AB",
+                    "EndpointID": {
+                        "_schemeID": "0007",
+                        "__text": "1234567890"
+                    },
+                    "CompanyLegalForm": "Säte: Big CIty"
+                },
+                "Contact": {
+                    "Name": "A Persson",
+                    "Telephone": "0201234567",
+                    "ElectronicMail": "info@UCS.se"
+                }
+            }
+        },
+        "AccountingCustomerParty": {
+            "Party": {
+                "EndpointID": {
+                    "_schemeID": "0007",
+                    "__text": "1234512345"
+                },
+                "PartyIdentification": {
+                    "EndpointID": {
+                        "_schemeID": "0088",
+                        "__text": "9876543210987"
+                    }
+                },
+                "PartyName": {
+                    "Name": "Project Services"
+                },
+                "PostalAddress": {
+                    "StreetName": "Gata (rad1)",
+                    "AdditionalStreetName": "Box 8 (rad2)",
+                    "CityName": "Motown",
+                    "PostalZone": "10203",
+                    "CountrySubentity": "Delstat B",
+                    "AddressLine": {
+                        "Line": "Building 4 (rad3)"
+                    },
+                    "Country": {
+                        "IdentificationCode": "SE"
+                    }
+                },
+                "PartyTaxScheme": {
+                    "CompanyID": "SE123451234501",
+                    "TaxScheme": {
+                        "ID": "VAT"
+                    }
+                },
+                "PartyLegalEntity": {
+                    "RegistrationName": "Project services AB",
+                    "EndpointID": {
+                        "_schemeID": "0007",
+                        "__text": "1234512345"
+                    }
+                },
+                "Contact": {
+                    "Name": "B. E. Ställman",
+                    "Telephone": "070123456",
+                    "ElectronicMail": "B.E.Stallman@projekttjanst.se"
+                }
+            }
+        },
+        "PayeeParty": {
+            "PartyIdentification": {
+                "EndpointID": {
+                    "_schemeID": "0088",
+                    "__text": "9876543210987"
+                }
+            },
+            "PartyName": {
+                "Name": "Finansiell Support u.p.a."
+            },
+            "PartyLegalEntity": {
+                "EndpointID": {
+                    "_schemeID": "0007",
+                    "__text": "1234512345"
+                }
+            }
+        },
+        "TaxRepresentativeParty": {
+            "PartyName": {
+                "Name": "Tax Administrators Inc."
+            },
+            "PostalAddress": {
+                "StreetName": "TaxREP Streetname-rad1",
+                "AdditionalStreetName": "TaxREP AddStreetname-rad2",
+                "CityName": "TaxREP Village",
+                "PostalZone": "TaxREP 98765",
+                "CountrySubentity": "TaxREP State A",
+                "AddressLine": {
+                    "Line": "TaxREP Rad3"
+                },
+                "Country": {
+                    "IdentificationCode": "SE"
+                }
+            },
+            "PartyTaxScheme": {
+                "CompanyID": "SE998877665501",
+                "TaxScheme": {
+                    "ID": "VAT"
+                }
+            }
+        },
+        "Delivery": {
+            "ActualDeliveryDate": "2017-12-01",
+            "DeliveryLocation": {
+                "EndpointID": {
+                    "_schemeID": "0088",
+                    "__text": "9876543210999"
+                },
+                "Address": {
+                    "StreetName": "DELIV Streetname-rad1",
+                    "AdditionalStreetName": "DELIV AddStreetname-rad2",
+                    "CityName": "DELIV Town",
+                    "PostalZone": "DELIV 90807",
+                    "CountrySubentity": "DELIV Delstat A",
+                    "AddressLine": {
+                        "Line": "DELIV Rad3"
+                    },
+                    "Country": {
+                        "IdentificationCode": "SE"
+                    }
+                }
+            },
+            "DeliveryParty": {
+                "PartyName": {
+                    "Name": "Deliver-to Name AS"
+                }
+            }
+        },
+        "PaymentMeans": [
+            {
+                "PaymentMeansCode": {
+                    "_name": "Undefined",
+                    "__text": "1"
+                }
+            },
+            {
+                "PaymentMeansCode": "30",
+                "PaymentID": "1800355",
+                "PayeeFinancialAccount": {
+                    "ID": "1234567",
+                    "Name": "Account name",
+                    "FinancialInstitutionBranch": {
+                        "ID": "BANKSBIC"
+                    }
+                }
+            },
+            {
+                "PaymentMeansCode": "30",
+                "PaymentID": "1800355",
+                "PayeeFinancialAccount": {
+                    "ID": "1112222",
+                    "FinancialInstitutionBranch": {
+                        "ID": "SE:BANKGIRO"
+                    }
+                }
+            },
+            {
+                "PaymentMeansCode": "30",
+                "PaymentID": "1800355",
+                "PayeeFinancialAccount": {
+                    "ID": "121212",
+                    "FinancialInstitutionBranch": {
+                        "ID": "SE:PLUSGIRO"
+                    }
+                }
+            },
+            {
+                "PaymentMeansCode": "54",
+                "PaymentID": "1800355",
+                "CardAccount": {
+                    "PrimaryAccountNumberID": "123236",
+                    "NetworkID": "VISA",
+                    "HolderName": "Card holders name"
+                }
+            },
+            {
+                "PaymentMeansCode": "59",
+                "PaymentID": "1800355",
+                "PaymentMandate": {
+                    "ID": "123456",
+                    "PayerFinancialAccount": {
+                        "ID": "DK12328462834823"
+                    }
+                }
+            }
+        ],
+        "PaymentTerms": {
+            "Note": "30 dagar netto. Dröjsmålsränta:12 %"
+        },
+        "AllowanceCharge": [
+            {
+                "ChargeIndicator": "false",
+                "AllowanceChargeReasonCode": "95",
+                "AllowanceChargeReason": "Discount",
+                "MultiplierFactorNumeric": "0",
+                "Amount": {
+                    "_currencyID": "SEK",
+                    "__text": "0"
+                },
+                "BaseAmount": {
+                    "_currencyID": "SEK",
+                    "__text": "0"
+                },
+                "TaxCategory": {
+                    "ID": "E",
+                    "Percent": "0",
+                    "TaxScheme": {
+                        "ID": "VAT"
+                    }
+                }
+            },
+            {
+                "ChargeIndicator": "true",
+                "AllowanceChargeReasonCode": "WH",
+                "AllowanceChargeReason": "Warehousing",
+                "MultiplierFactorNumeric": "0",
+                "Amount": {
+                    "_currencyID": "SEK",
+                    "__text": "0"
+                },
+                "BaseAmount": {
+                    "_currencyID": "SEK",
+                    "__text": "0"
+                },
+                "TaxCategory": {
+                    "ID": "E",
+                    "Percent": "0",
+                    "TaxScheme": {
+                        "ID": "VAT"
+                    }
+                }
+            }
+        ],
+        "TaxTotal": [
+            {
+                "TaxAmount": {
+                    "_currencyID": "SEK",
+                    "__text": "2500"
+                },
+                "TaxSubtotal": [
+                    {
+                        "TaxableAmount": {
+                            "_currencyID": "SEK",
+                            "__text": "10000"
+                        },
+                        "TaxAmount": {
+                            "_currencyID": "SEK",
+                            "__text": "2500"
+                        },
+                        "TaxCategory": {
+                            "ID": "S",
+                            "Percent": "25",
+                            "TaxScheme": {
+                                "ID": "VAT"
+                            }
+                        }
+                    },
+                    {
+                        "TaxableAmount": {
+                            "_currencyID": "SEK",
+                            "__text": "0"
+                        },
+                        "TaxAmount": {
+                            "_currencyID": "SEK",
+                            "__text": "0"
+                        },
+                        "TaxCategory": {
+                            "ID": "E",
+                            "Percent": "0",
+                            "TaxExemptionReasonCode": "0",
+                            "TaxExemptionReason": "Skatteundantag",
+                            "TaxScheme": {
+                                "ID": "VAT"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "TaxAmount": "249"
+            }
+        ],
+        "LegalMonetaryTotal": {
+            "LineExtensionAmount": {
+                "_currencyID": "SEK",
+                "__text": "10000"
+            },
+            "TaxExclusiveAmount": {
+                "_currencyID": "SEK",
+                "__text": "10000"
+            },
+            "TaxInclusiveAmount": {
+                "_currencyID": "SEK",
+                "__text": "12500"
+            },
+            "AllowanceTotalAmount": {
+                "_currencyID": "SEK",
+                "__text": "0"
+            },
+            "ChargeTotalAmount": {
+                "_currencyID": "SEK",
+                "__text": "0"
+            },
+            "PrepaidAmount": {
+                "_currencyID": "SEK",
+                "__text": "0"
+            },
+            "PayableRoundingAmount": {
+                "_currencyID": "SEK",
+                "__text": "0"
+            },
+            "PayableAmount": {
+                "_currencyID": "SEK",
+                "__text": "12500"
+            }
+        },
+        "InvoiceLine": [
+            {
+                "ID": "1",
+                "Note": "Line level Note",
+                "InvoicedQuantity": {
+                    "_unitCode": "EA",
+                    "__text": "10000"
+                },
+                "LineExtensionAmount": {
+                    "_currencyID": "SEK",
+                    "__text": "10000"
+                },
+                "AccountingCost": "Accounting 101-222-8",
+                "InvoicePeriod": {
+                    "StartDate": "2018-02-01",
+                    "EndDate": "2018-02-07"
+                },
+                "OrderLineReference": {
+                    "LineID": "20080117/JM"
+                },
+                "DocumentReference": {
+                    "ID": {
+                        "_schemeID": "ABZ",
+                        "__text": "130-DR35141"
+                    },
+                    "DocumentTypeCode": "130"
+                },
+                "AllowanceCharge": [
+                    {
+                        "ChargeIndicator": "false",
+                        "AllowanceChargeReasonCode": "95",
+                        "AllowanceChargeReason": "Discount",
+                        "MultiplierFactorNumeric": "0",
+                        "Amount": {
+                            "_currencyID": "SEK",
+                            "__text": "0"
+                        },
+                        "BaseAmount": {
+                            "_currencyID": "SEK",
+                            "__text": "0"
+                        }
+                    },
+                    {
+                        "ChargeIndicator": "true",
+                        "AllowanceChargeReasonCode": "WH",
+                        "AllowanceChargeReason": "Warehousing",
+                        "MultiplierFactorNumeric": "0",
+                        "Amount": {
+                            "_currencyID": "SEK",
+                            "__text": "0"
+                        },
+                        "BaseAmount": {
+                            "_currencyID": "SEK",
+                            "__text": "0"
+                        }
+                    }
+                ],
+                "Item": {
+                    "Description": "Single room, b'fast incl.",
+                    "Name": "Single room",
+                    "BuyersItemIdentification": {
+                        "ID": "Buyer's ID"
+                    },
+                    "SellersItemIdentification": {
+                        "ID": "STDSI-V"
+                    },
+                    "StandardItemIdentification": {
+                        "ID": {
+                            "_schemeID": "0088",
+                            "__text": "12345678901234"
+                        }
+                    },
+                    "OriginCountry": {
+                        "IdentificationCode": "SE"
+                    },
+                    "ClassifiedTaxCategory": {
+                        "ID": "S",
+                        "Percent": "25",
+                        "TaxScheme": {
+                            "ID": "VAT"
+                        }
+                    },
+                    "AdditionalItemProperty": [
+                        {
+                            "Name": "Egenskapsnamn1",
+                            "Value": "Egenskapsvärde1"
+                        },
+                        {
+                            "Name": "Egenskapsnamn2",
+                            "Value": "Egenskapsvärde2"
+                        }
+                    ]
+                },
+                "Price": {
+                    "PriceAmount": {
+                        "_currencyID": "SEK",
+                        "__text": "1"
+                    },
+                    "BaseQuantity": {
+                        "_unitCode": "EA",
+                        "__text": "1"
+                    },
+                    "AllowanceCharge": {
+                        "ChargeIndicator": "false",
+                        "Amount": {
+                            "_currencyID": "SEK",
+                            "__text": "0"
+                        },
+                        "BaseAmount": {
+                            "_currencyID": "SEK",
+                            "__text": "1"
+                        }
+                    }
+                }
+            },
+            {
+                "ID": "2",
+                "InvoicedQuantity": {
+                    "_unitCode": "EA",
+                    "__text": "10000"
+                },
+                "LineExtensionAmount": {
+                    "_currencyID": "SEK",
+                    "__text": "0"
+                },
+                "Item": {
+                    "Name": "Double room",
+                    "ClassifiedTaxCategory": {
+                        "ID": {
+                            "_schemeID": "UNCL5305",
+                            "__text": "E"
+                        },
+                        "Percent": "0",
+                        "TaxScheme": {
+                            "ID": "VAT"
+                        }
+                    }
+                },
+                "Price": {
+                    "PriceAmount": {
+                        "_currencyID": "SEK",
+                        "__text": "0"
+                    }
+                }
+            }
+        ]
+    }
+}
