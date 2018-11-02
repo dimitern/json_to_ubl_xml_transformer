@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
   <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
   <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
@@ -15,8 +15,6 @@
   <cac:InvoicePeriod>
     <cbc:StartDate>2018-02-01</cbc:StartDate>
     <cbc:EndDate>2018-02-07</cbc:EndDate>
-    <!-- *** Inactivated in this message due to "mutually exclusive"-rule when validating: -->
-    <!-- ***	<cbc:DescriptionCode>35</cbc:DescriptionCode>                          -->
   </cac:InvoicePeriod>
   <cac:OrderReference>
     <cbc:ID>20180117</cbc:ID>
@@ -46,10 +44,10 @@
     <cbc:ID>2017-123</cbc:ID>
   </cac:ContractDocumentReference>
   <cac:AdditionalDocumentReference>
-    <cbc:ID schemeID="ABT">DR35141</cbc:ID>
+    <cbc:ID schemeID="AFL">DR35141</cbc:ID>
   </cac:AdditionalDocumentReference>
   <cac:AdditionalDocumentReference>
-    <cbc:ID schemeID="ABT">130-DR35141</cbc:ID>
+    <cbc:ID schemeID="AFL">130-DR35141</cbc:ID>
     <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
     <cbc:DocumentDescription>Supporting document</cbc:DocumentDescription>
   </cac:AdditionalDocumentReference>
@@ -57,8 +55,8 @@
     <cbc:ID>Timelist 1</cbc:ID>
     <cbc:DocumentDescription>Time list</cbc:DocumentDescription>
     <cac:Attachment>
-      <cbc:EmbeddedDocumentBinaryObject mimeCode="text/csv" filename="testfilnamn.abc">
-        01234567
+      <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="Source PDF">
+        VGhpcyBpcyBvbmx5IGEgdGVzdA==
       </cbc:EmbeddedDocumentBinaryObject>
     </cac:Attachment>
   </cac:AdditionalDocumentReference>
@@ -163,17 +161,15 @@
   </cac:AccountingCustomerParty>
   <cac:PayeeParty>
     <cac:PartyIdentification>
-      <cbc:ID schemeID="0088">1122334455667</cbc:ID>
+      <cbc:ID schemeID="0088">9876543210987</cbc:ID>
     </cac:PartyIdentification>
     <cac:PartyName>
       <cbc:Name>Finansiell Support u.p.a.</cbc:Name>
     </cac:PartyName>
     <cac:PartyLegalEntity>
-      <cbc:CompanyID schemeID="0007">5566778899</cbc:CompanyID>
+      <cbc:CompanyID schemeID="0007">1234512345</cbc:CompanyID>
     </cac:PartyLegalEntity>
   </cac:PayeeParty>
-  <!-- Be cautious if TaxRepresentative is found in invoices to Swedish buyers.       -->
-  <!-- If referenced in Sweden, still the supplier's Swedish VAT number is required.  -->
   <cac:TaxRepresentativeParty>
     <cac:PartyName>
       <cbc:Name>Tax Administrators Inc.</cbc:Name>
@@ -192,7 +188,6 @@
       </cac:Country>
     </cac:PostalAddress>
     <cac:PartyTaxScheme>
-      <!-- Not compatible with Swedish VAT rules (but may be OK in other countries): -->
       <cbc:CompanyID>SE998877665501</cbc:CompanyID>
       <cac:TaxScheme>
         <cbc:ID>VAT</cbc:ID>
@@ -223,15 +218,10 @@
       </cac:PartyName>
     </cac:DeliveryParty>
   </cac:Delivery>
-  <!-- NB! Note the restrictions on PaymentMeans in order for the invoice instance to be valid: -->
-  <!--     * Credit transfer, debit transfer and card payment are mutually exclusive options    -->
-  <!--     * Credit transfer may be repeated, but then only with the same PaymentMeansCode      -->
-  <!--     * The same PaymentID must apply to all PaymentMeans in the invoice instance          -->
   <cac:PaymentMeans>
     <cbc:PaymentMeansCode name="Undefined">1</cbc:PaymentMeansCode>
   </cac:PaymentMeans>
   <cac:PaymentMeans>
-    <!-- Credit transfer -->
     <cbc:PaymentMeansCode>30</cbc:PaymentMeansCode>
     <cbc:PaymentID>1800355</cbc:PaymentID>
     <cac:PayeeFinancialAccount>
@@ -243,7 +233,6 @@
     </cac:PayeeFinancialAccount>
   </cac:PaymentMeans>
   <cac:PaymentMeans>
-    <!-- Credit transfer -->
     <cbc:PaymentMeansCode>30</cbc:PaymentMeansCode>
     <cbc:PaymentID>1800355</cbc:PaymentID>
     <cac:PayeeFinancialAccount>
@@ -254,7 +243,6 @@
     </cac:PayeeFinancialAccount>
   </cac:PaymentMeans>
   <cac:PaymentMeans>
-    <!-- Credit transfer -->
     <cbc:PaymentMeansCode>30</cbc:PaymentMeansCode>
     <cbc:PaymentID>1800355</cbc:PaymentID>
     <cac:PayeeFinancialAccount>
@@ -265,19 +253,16 @@
     </cac:PayeeFinancialAccount>
   </cac:PaymentMeans>
   <cac:PaymentMeans>
-    <!-- Card payment -->
-    <cbc:PaymentMeansCode name="Credit card">54</cbc:PaymentMeansCode>
+    <cbc:PaymentMeansCode>54</cbc:PaymentMeansCode>
     <cbc:PaymentID>1800355</cbc:PaymentID>
     <cac:CardAccount>
       <cbc:PrimaryAccountNumberID>123236</cbc:PrimaryAccountNumberID>
-      <!-- NetworkID was added in ISO 16931-3-2 syntax binding:   -->
       <cbc:NetworkID>VISA</cbc:NetworkID>
       <cbc:HolderName>Card holders name</cbc:HolderName>
     </cac:CardAccount>
   </cac:PaymentMeans>
   <cac:PaymentMeans>
-    <!-- Debit transfer - also see the PEPPOL doumentation: -->
-    <cbc:PaymentMeansCode name="SEPA direct debit">59</cbc:PaymentMeansCode>
+    <cbc:PaymentMeansCode>59</cbc:PaymentMeansCode>
     <cbc:PaymentID>1800355</cbc:PaymentID>
     <cac:PaymentMandate>
       <cbc:ID>123456</cbc:ID>
@@ -290,7 +275,6 @@
     <cbc:Note>30 dagar netto. Dröjsmålsränta:12 %</cbc:Note>
   </cac:PaymentTerms>
   <cac:AllowanceCharge>
-    <!-- Rabatt -->
     <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
     <cbc:AllowanceChargeReasonCode>95</cbc:AllowanceChargeReasonCode>
     <cbc:AllowanceChargeReason>Discount</cbc:AllowanceChargeReason>
@@ -306,7 +290,6 @@
     </cac:TaxCategory>
   </cac:AllowanceCharge>
   <cac:AllowanceCharge>
-    <!-- Avgift -->
     <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
     <cbc:AllowanceChargeReasonCode>WH</cbc:AllowanceChargeReasonCode>
     <cbc:AllowanceChargeReason>Warehousing</cbc:AllowanceChargeReason>
@@ -349,7 +332,6 @@
     </cac:TaxSubtotal>
   </cac:TaxTotal>
   <cac:TaxTotal>
-    <!-- Two occurrencies of TaxTotal only when tax in TaxCurrency is present -->
     <cbc:TaxAmount currencyID="EUR">249</cbc:TaxAmount>
   </cac:TaxTotal>
   <cac:LegalMonetaryTotal>
@@ -380,7 +362,6 @@
       <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
     </cac:DocumentReference>
     <cac:AllowanceCharge>
-      <!-- Rabatt -->
       <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
       <cbc:AllowanceChargeReasonCode>95</cbc:AllowanceChargeReasonCode>
       <cbc:AllowanceChargeReason>Discount</cbc:AllowanceChargeReason>
@@ -389,7 +370,6 @@
       <cbc:BaseAmount currencyID="SEK">0</cbc:BaseAmount>
     </cac:AllowanceCharge>
     <cac:AllowanceCharge>
-      <!-- Avgift -->
       <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
       <cbc:AllowanceChargeReasonCode>WH</cbc:AllowanceChargeReasonCode>
       <cbc:AllowanceChargeReason>Warehousing</cbc:AllowanceChargeReason>
@@ -412,12 +392,6 @@
       <cac:OriginCountry>
         <cbc:IdentificationCode>SE</cbc:IdentificationCode>
       </cac:OriginCountry>
-      <cac:CommodityClassification>
-        <cbc:ItemClassificationCode listID="SSR" listVersionID="1.0">9873242</cbc:ItemClassificationCode>
-      </cac:CommodityClassification>
-      <cac:CommodityClassification>
-        <cbc:ItemClassificationCode listID="SST">SST3242</cbc:ItemClassificationCode>
-      </cac:CommodityClassification>
       <cac:ClassifiedTaxCategory>
         <cbc:ID>S</cbc:ID>
         <cbc:Percent>25</cbc:Percent>
@@ -438,7 +412,6 @@
       <cbc:PriceAmount currencyID="SEK">1</cbc:PriceAmount>
       <cbc:BaseQuantity unitCode="EA">1</cbc:BaseQuantity>
       <cac:AllowanceCharge>
-        <!-- EN 16931-1 tillåter endast rabatt, max en förekomst -->
         <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
         <cbc:Amount currencyID="SEK">0</cbc:Amount>
         <cbc:BaseAmount currencyID="SEK">1</cbc:BaseAmount>

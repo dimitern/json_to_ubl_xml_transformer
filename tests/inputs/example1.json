@@ -65,7 +65,7 @@
                     "EmbeddedDocumentBinaryObject": {
                         "_mimeCode": "application/pdf",
                         "_filename": "Source PDF",
-                        "__text": "dwvjkbnwdbskdnvksndvknksndkvnbksbndvkbnskbdvkbskbdvkskjdvkjnsdjknvjksndjkvskjkjeorjweiojfiejnrkjbvkjebnfvnjksndfjnvjkndsfjknb"
+                        "__text": "VGhpcyBpcyBvbmx5IGEgdGVzdA=="
                     }
                 }
             },
@@ -133,7 +133,7 @@
                 ],
                 "PartyLegalEntity": {
                     "RegistrationName": "The Ubiquitous Chain Sweden AB",
-                    "EndpointID": {
+                    "CompanyID": {
                         "_schemeID": "0007",
                         "__text": "1234567890"
                     },
@@ -153,7 +153,7 @@
                     "__text": "1234512345"
                 },
                 "PartyIdentification": {
-                    "EndpointID": {
+                    "ID": {
                         "_schemeID": "0088",
                         "__text": "9876543210987"
                     }
@@ -182,7 +182,7 @@
                 },
                 "PartyLegalEntity": {
                     "RegistrationName": "Project services AB",
-                    "EndpointID": {
+                    "CompanyID": {
                         "_schemeID": "0007",
                         "__text": "1234512345"
                     }
@@ -196,7 +196,7 @@
         },
         "PayeeParty": {
             "PartyIdentification": {
-                "EndpointID": {
+                "ID": {
                     "_schemeID": "0088",
                     "__text": "9876543210987"
                 }
@@ -205,7 +205,7 @@
                 "Name": "Finansiell Support u.p.a."
             },
             "PartyLegalEntity": {
-                "EndpointID": {
+                "CompanyID": {
                     "_schemeID": "0007",
                     "__text": "1234512345"
                 }
@@ -413,7 +413,10 @@
                 ]
             },
             {
-                "TaxAmount": "249"
+                "TaxAmount": {
+                    "_currencyID": "EUR",
+                    "__text": "249"
+                }
             }
         ],
         "LegalMonetaryTotal": {

@@ -5,7 +5,7 @@
 
 import pytest
 from click.testing import CliRunner
-from json_to_ubl_xml_transformer import cli
+from json_to_ubl_xml_transformer import cli, json_to_ubl_xml_transformer
 
 
 @pytest.fixture
@@ -16,6 +16,11 @@ def response():
     """
     # import requests
     # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
+
+
+def test_main_docstring():
+    """Test the main module docstring."""
+    assert json_to_ubl_xml_transformer.__doc__ == "Main module."
 
 
 def test_content(response):
