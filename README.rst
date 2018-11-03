@@ -12,8 +12,8 @@ JSON to UBL XML Transformer
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
         :target: https://github.com/ambv/black
 
-.. image:: https://img.shields.io/travis/dimitern/json_to_ubl_xml_transformer.svg
-        :target: https://travis-ci.org/dimitern/json_to_ubl_xml_transformer.svg?branch=master
+.. image:: https://img.shields.io/travis/dimitern/json_to_ubl_xml_transformer.svg?branch=master
+        :target: https://travis-ci.org/dimitern/json_to_ubl_xml_transformer
 
 .. image:: https://readthedocs.org/projects/json-to-ubl-xml-transformer/badge/?version=latest
         :target: https://json-to-ubl-xml-transformer.readthedocs.io/en/latest/?badge=latest
