@@ -2,10 +2,25 @@
 # -*- coding: utf-8 -*-
 
 """Tests for `json_to_ubl_xml_transformer` package."""
+import codecs
+import os
 
 import pytest
 from click.testing import CliRunner
 from json_to_ubl_xml_transformer import cli, json_to_ubl_xml_transformer
+from json_to_ubl_xml_transformer.json_to_ubl_xml_transformer import (
+    escape_utf_8_chars,
+    intermediate_json_to_xml,
+    unescape_utf_8_chars,
+)
+from lxml import etree
+from xmldiff.main import diff_trees
+
+INPUTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "inputs"))
+INTERMEDIATES_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "intermediates")
+)
+OUTPUTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "outputs"))
 
 
 @pytest.fixture
@@ -18,9 +33,52 @@ def response():
     # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
 
 
+@pytest.fixture(scope="session")
+def output_xml_file(tmpdir_factory):
+    return str(tmpdir_factory.mktemp("outputs").join("output.xml"))
+
+
 def test_main_docstring():
     """Test the main module docstring."""
     assert json_to_ubl_xml_transformer.__doc__ == "Main module."
+
+
+@pytest.mark.parametrize(
+    "input_json,intermediate_json",
+    [
+        (
+            os.path.join(INPUTS_DIR, "example1.json"),
+            os.path.join(INTERMEDIATES_DIR, "example1.json"),
+        )
+    ],
+)
+def test_input_to_intermediate(input_json, intermediate_json):
+    """Test the given input JSON is transformed to expected JSON intermediate output."""
+    pass
+
+
+@pytest.mark.parametrize(
+    "intermediate_json,output_xml",
+    [
+        (
+            os.path.join(INTERMEDIATES_DIR, "example1.json"),
+            os.path.join(OUTPUTS_DIR, "example1.xml"),
+        )
+    ],
+)
+def test_intermediate_to_output(intermediate_json, output_xml, output_xml_file):
+    """Test the given intermediate JSON input is transformed to expected XML output."""
+
+    output = intermediate_json_to_xml(intermediate_json)
+
+    with codecs.open(output_xml_file, "wb", encoding="utf-8") as f:
+        f.write(output)
+        f.flush()
+
+    parsed = etree.parse(output_xml_file).getroot()
+    expected_parsed = etree.parse(output_xml).getroot()
+
+    assert diff_trees(parsed, expected_parsed) == []
 
 
 def test_content(response):

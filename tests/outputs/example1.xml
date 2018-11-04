@@ -55,9 +55,7 @@
     <cbc:ID>Timelist 1</cbc:ID>
     <cbc:DocumentDescription>Time list</cbc:DocumentDescription>
     <cac:Attachment>
-      <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="Source PDF">
-        VGhpcyBpcyBvbmx5IGEgdGVzdA==
-      </cbc:EmbeddedDocumentBinaryObject>
+      <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="Source PDF">VGhpcyBpcyBvbmx5IGEgdGVzdA==</cbc:EmbeddedDocumentBinaryObject>
     </cac:Attachment>
   </cac:AdditionalDocumentReference>
   <cac:AdditionalDocumentReference>
