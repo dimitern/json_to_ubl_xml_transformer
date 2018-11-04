@@ -2,18 +2,16 @@
 # -*- coding: utf-8 -*-
 
 """Tests for `json_to_ubl_xml_transformer` package."""
-import codecs
 import os
+
+from lxml import etree
 
 import pytest
 from click.testing import CliRunner
 from json_to_ubl_xml_transformer import cli, json_to_ubl_xml_transformer
 from json_to_ubl_xml_transformer.json_to_ubl_xml_transformer import (
-    escape_utf_8_chars,
     intermediate_json_to_xml,
-    unescape_utf_8_chars,
 )
-from lxml import etree
 from xmldiff.main import diff_trees
 
 INPUTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "inputs"))
@@ -69,16 +67,15 @@ def test_input_to_intermediate(input_json, intermediate_json):
 def test_intermediate_to_output(intermediate_json, output_xml, output_xml_file):
     """Test the given intermediate JSON input is transformed to expected XML output."""
 
-    output = intermediate_json_to_xml(intermediate_json)
+    output_text = intermediate_json_to_xml(intermediate_json, output_xml=None)
+    intermediate_json_to_xml(intermediate_json, output_xml=output_xml_file)
 
-    with codecs.open(output_xml_file, "wb", encoding="utf-8") as f:
-        f.write(output)
-        f.flush()
-
-    parsed = etree.parse(output_xml_file).getroot()
+    parsed_text = etree.fromstring(output_text.encode("utf-8"))
+    parsed_file = etree.parse(output_xml_file).getroot()
     expected_parsed = etree.parse(output_xml).getroot()
 
-    assert diff_trees(parsed, expected_parsed) == []
+    assert diff_trees(parsed_text, parsed_file) == []
+    assert diff_trees(parsed_file, expected_parsed) == []
 
 
 def test_content(response):

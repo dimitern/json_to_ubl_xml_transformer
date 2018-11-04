@@ -9,6 +9,7 @@ import re
 from collections import OrderedDict
 
 import six
+
 from xmler import dict2xml
 
 DEFAULT_ENCODING = "utf-8"
@@ -28,7 +29,7 @@ def escape_utf_8_chars(input_text):
                 ascii_text += six.b(r"\\u00" + "%x" % b)
         else:
             ascii_text += six.b(c)
-    return ascii_text
+    return codecs.decode(ascii_text, "utf-8")
 
 
 def unescape_utf_8_chars(input_text):
@@ -61,22 +62,13 @@ def replace_unescaped_utf_8_chars(input_text):
 def intermediate_json_to_xml(intermediate_json, output_xml=None):
     with codecs.open(intermediate_json, "rb") as f:
         input_data = f.read()
-
-        try:
-            encoding = json.detect_encoding(input_data)
-        except AttributeError:
-            try:
-                encoding = FALLBACK_ENCODING
-                input_data.decode(encoding)
-            except ValueError:
-                encoding = DEFAULT_ENCODING
-                input_data.decode(encoding)
-
-        input_text = escape_utf_8_chars(input_data.decode(encoding))
-        input_data = six.binary_type(input_text)
+        if input_data[:3] == codecs.BOM_UTF8:
+            input_text = input_data.decode(FALLBACK_ENCODING)
+        else:
+            input_text = input_data.decode(DEFAULT_ENCODING)
 
         parsed_json = json.loads(
-            input_data.decode(DEFAULT_ENCODING),
+            escape_utf_8_chars(input_text),
             object_hook=OrderedDict,
             object_pairs_hook=OrderedDict,
         )
@@ -87,8 +79,14 @@ def intermediate_json_to_xml(intermediate_json, output_xml=None):
             )
         )
 
-        if not output_xml:
+        if output_xml is None:
             return output
+
+        output_xml = (
+            codecs.open(output_xml, "wb", encoding=DEFAULT_ENCODING)
+            if isinstance(output_xml, six.string_types)
+            else output_xml
+        )
 
         output_xml.write(output)
         output_xml.flush()
