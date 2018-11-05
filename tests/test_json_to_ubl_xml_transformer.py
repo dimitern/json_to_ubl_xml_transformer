@@ -3,15 +3,16 @@
 
 """Tests for `json_to_ubl_xml_transformer` package."""
 import os
-
-from lxml import etree
+from collections import OrderedDict
 
 import pytest
 from click.testing import CliRunner
 from json_to_ubl_xml_transformer import cli, json_to_ubl_xml_transformer
 from json_to_ubl_xml_transformer.json_to_ubl_xml_transformer import (
     intermediate_json_to_xml,
+    load_json,
 )
+from lxml import etree
 from xmldiff.main import diff_trees
 
 INPUTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "inputs"))
@@ -41,18 +42,107 @@ def test_main_docstring():
     assert json_to_ubl_xml_transformer.__doc__ == "Main module."
 
 
+def check_attrs(input_parent, intermediate_parent):
+    if isinstance(input_parent, dict):
+        assert isinstance(intermediate_parent, dict)
+
+        if "__text" in input_parent:
+            assert "@value" in intermediate_parent
+            assert intermediate_parent["@value"] == input_parent["__text"]
+
+        for key in input_parent:
+            if key.startswith("_") and not key.startswith(("__", "@")):
+                unprefixed_key = key[1:]
+                assert "@attrs" in intermediate_parent
+                assert unprefixed_key in intermediate_parent["@attrs"]
+                assert (
+                    intermediate_parent["@attrs"][unprefixed_key] == input_parent[key]
+                )
+
+            elif not key.startswith(("_", "@")) and isinstance(input_parent[key], dict):
+                cbc_key = "cbc:%s" % key
+                cac_key = "cac:%s" % key
+                assert cbc_key in intermediate_parent or cac_key in intermediate_parent
+
+                check_attrs(
+                    input_parent[key],
+                    intermediate_parent.get(cbc_key, intermediate_parent.get(cac_key)),
+                )
+
+
 @pytest.mark.parametrize(
     "input_json,intermediate_json",
     [
         (
             os.path.join(INPUTS_DIR, "example1.json"),
             os.path.join(INTERMEDIATES_DIR, "example1.json"),
-        )
+        ),
+        (
+            os.path.join(INPUTS_DIR, "example2.json"),
+            os.path.join(INTERMEDIATES_DIR, "example2.json"),
+        ),
     ],
 )
 def test_input_to_intermediate(input_json, intermediate_json):
     """Test the given input JSON is transformed to expected JSON intermediate output."""
-    pass
+
+    input_data = load_json(input_json)
+    intermediate_data = load_json(intermediate_json)
+
+    assert len(input_data) == len(intermediate_data) == 1
+    assert set(input_data.keys()) == set(intermediate_data.keys()) == set(["Invoice"])
+    assert set(input_data.keys()) == set(["Invoice"])
+
+    assert "@attrs" not in input_data["Invoice"]
+    assert "@attrs" in intermediate_data["Invoice"]
+    assert intermediate_data["Invoice"]["@attrs"] == OrderedDict(
+        [
+            (
+                "xmlns:cac",
+                "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+            ),
+            (
+                "xmlns:cbc",
+                "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+            ),
+            ("xmlns", "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"),
+        ]
+    )
+
+    assert "cbc:CustomizationID" in intermediate_data["Invoice"]
+    assert "cbc:CustomizationID" not in input_data["Invoice"]
+    assert (
+        intermediate_data["Invoice"]["cbc:CustomizationID"]
+        == "urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0"
+    )
+
+    assert "cbc:ProfileID" in intermediate_data["Invoice"]
+    assert "cbc:ProfileID" not in input_data["Invoice"]
+    assert (
+        intermediate_data["Invoice"]["cbc:ProfileID"]
+        == "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0"
+    )
+
+    invoice = intermediate_data["Invoice"]
+    for key in input_data["Invoice"]:
+        cbc_key = "cbc:%s" % key
+        cac_key = "cac:%s" % key
+        value = input_data["Invoice"][key]
+
+        if isinstance(value, dict):
+            assert cbc_key in invoice or cac_key in invoice
+
+            check_attrs(value, invoice.get(cbc_key, invoice.get(cac_key)))
+
+        elif isinstance(value, (list, tuple)):
+            count = len(value)
+            for i in range(count):
+                suffix = "__%d" % i
+                assert cbc_key + suffix in invoice or cac_key + suffix in invoice
+
+                child = invoice.get(cbc_key + suffix, invoice.get(cac_key + suffix))
+                assert "@name" in child
+                assert child["@name"] in (cbc_key, cac_key)
 
 
 @pytest.mark.parametrize(
@@ -61,7 +151,11 @@ def test_input_to_intermediate(input_json, intermediate_json):
         (
             os.path.join(INTERMEDIATES_DIR, "example1.json"),
             os.path.join(OUTPUTS_DIR, "example1.xml"),
-        )
+        ),
+        (
+            os.path.join(INTERMEDIATES_DIR, "example2.json"),
+            os.path.join(OUTPUTS_DIR, "example2.xml"),
+        ),
     ],
 )
 def test_intermediate_to_output(intermediate_json, output_xml, output_xml_file):

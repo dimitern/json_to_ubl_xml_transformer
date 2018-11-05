@@ -9,7 +9,6 @@ import re
 from collections import OrderedDict
 
 import six
-
 from xmler import dict2xml
 
 DEFAULT_ENCODING = "utf-8"
@@ -59,35 +58,49 @@ def replace_unescaped_utf_8_chars(input_text):
     return pattern.sub(replace, input_text)
 
 
-def intermediate_json_to_xml(intermediate_json, output_xml=None):
-    with codecs.open(intermediate_json, "rb") as f:
+def load_json(input_file):
+    """
+    Loads the given `input_file` filename as JSON and returns the result.
+    """
+
+    with codecs.open(input_file, "rb") as f:
         input_data = f.read()
         if input_data[:3] == codecs.BOM_UTF8:
             input_text = input_data.decode(FALLBACK_ENCODING)
         else:
             input_text = input_data.decode(DEFAULT_ENCODING)
 
-        parsed_json = json.loads(
+        return json.loads(
             escape_utf_8_chars(input_text),
             object_hook=OrderedDict,
             object_pairs_hook=OrderedDict,
         )
 
-        output = replace_unescaped_utf_8_chars(
-            unescape_utf_8_chars(
-                dict2xml(parsed_json, encoding=DEFAULT_ENCODING, pretty=True)
-            )
+
+def intermediate_json_to_xml(intermediate_json, output_xml=None):
+    """
+    Reads the given `intermediate_json` filename as JSON, and
+    transforms its content to equivalent XML, saving the result
+    in `output_xml` (a file-like object or a string filename),
+    or if the latter is None, returns the XML as string.
+    """
+
+    parsed_json = load_json(intermediate_json)
+    output = replace_unescaped_utf_8_chars(
+        unescape_utf_8_chars(
+            dict2xml(parsed_json, encoding=DEFAULT_ENCODING, pretty=True)
         )
+    )
 
-        if output_xml is None:
-            return output
+    if output_xml is None:
+        return output
 
-        output_xml = (
-            codecs.open(output_xml, "wb", encoding=DEFAULT_ENCODING)
-            if isinstance(output_xml, six.string_types)
-            else output_xml
-        )
+    output_xml = (
+        codecs.open(output_xml, "wb", encoding=DEFAULT_ENCODING)
+        if isinstance(output_xml, six.string_types)
+        else output_xml
+    )
 
-        output_xml.write(output)
-        output_xml.flush()
-        output_xml.close()
+    output_xml.write(output)
+    output_xml.flush()
+    output_xml.close()

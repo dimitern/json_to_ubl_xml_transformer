@@ -1,0 +1,113 @@
+{
+    "Invoice": {
+        "ID": "2018-112",
+        "IssueDate": "2018-07-31",
+        "InvoiceTypeCode": "380",
+        "DocumentCurrencyCode": "SEK",
+        "BuyerReference": "ACE22",
+        "AccountingSupplierParty": {
+            "Party": {
+                "EndpointID": {
+                    "_schemeID": "0007",
+                    "__text": "1234567890"
+                },
+                "PostalAddress": {
+                    "Country": {
+                        "IdentificationCode": "SE"
+                    }
+                },
+                "PartyLegalEntity": {
+                    "RegistrationName": "Säljbolaget AB",
+                    "CompanyID": "1234567890"
+                }
+            }
+        },
+        "AccountingCustomerParty": {
+            "Party": {
+                "EndpointID": {
+                    "_schemeID": "0007",
+                    "__text": "9876543210"
+                },
+                "PostalAddress": {
+                    "Country": {
+                        "IdentificationCode": "SE"
+                    }
+                },
+                "PartyLegalEntity": {
+                    "RegistrationName": "Centrala Inköps Handelsbolag"
+                }
+            }
+        },
+        "TaxTotal": {
+            "TaxAmount": {
+                "_currencyID": "SEK",
+                "__text": "0"
+            },
+            "TaxSubtotal": {
+                "TaxableAmount": {
+                    "_currencyID": "SEK",
+                    "__text": "400"
+                },
+                "TaxAmount": {
+                    "_currencyID": "SEK",
+                    "__text": "0"
+                },
+                "TaxCategory": {
+                    "ID": "O",
+                    "TaxExemptionReason": "Not subject to VAT",
+                    "TaxScheme": {
+                        "ID": "VAT"
+                    }
+                }
+            }
+        },
+        "LegalMonetaryTotal": {
+            "LineExtensionAmount": {
+                "_currencyID": "SEK",
+                "__text": "400"
+            },
+            "TaxExclusiveAmount": {
+                "_currencyID": "SEK",
+                "__text": "400"
+            },
+            "TaxInclusiveAmount": {
+                "_currencyID": "SEK",
+                "__text": "400"
+            },
+            "PrepaidAmount": {
+                "_currencyID": "SEK",
+                "__text": "400"
+            },
+            "PayableAmount": {
+                "_currencyID": "SEK",
+                "__text": "0"
+            }
+        },
+        "InvoiceLine": {
+            "ID": "1",
+            "InvoicedQuantity": {
+                "_unitCode": "MON",
+                "__text": "1"
+            },
+            "LineExtensionAmount": {
+                "_currencyID": "SEK",
+                "__text": "400"
+            },
+            "Item": {
+                "Name": "Guarantee fee",
+                "ClassifiedTaxCategory": {
+                    "ID": "O",
+                    "TaxScheme": {
+                        "ID": "VAT"
+                    }
+                }
+            },
+            "Price": {
+                "PriceAmount": {
+                    "_currencyID": "SEK",
+                    "__text": "400"
+                }
+            }
+        }
+    }
+}

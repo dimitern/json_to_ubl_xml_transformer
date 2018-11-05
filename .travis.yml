@@ -15,4 +15,4 @@ deploy:
   on:
     tags: true
     repo: dimitern/json_to_ubl_xml_transformer
-    python: 3.6
+    python: 3.7

@@ -238,7 +238,7 @@
         "Delivery": {
             "ActualDeliveryDate": "2017-12-01",
             "DeliveryLocation": {
-                "EndpointID": {
+                "ID": {
                     "_schemeID": "0088",
                     "__text": "9876543210999"
                 },
