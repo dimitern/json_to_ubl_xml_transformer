@@ -34,7 +34,7 @@ pytest-runner==4.2
 pytz==2018.7
 PyYAML==3.13
 readme-renderer==24.0
-requests==2.20.0
+requests==2.20.1
 requests-toolbelt==0.8.0
 six==1.11.0
 snowballstemmer==1.2.1
