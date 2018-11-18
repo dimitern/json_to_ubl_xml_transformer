@@ -10,7 +10,7 @@ certifi==2018.10.15
 chardet==3.0.4
 Click==7.0
 codecov==2.0.15
-coverage==4.5.1
+coverage==4.5.2
 docutils==0.14
 flake8==3.6.0
 idna==2.7
@@ -28,7 +28,7 @@ pycodestyle==2.4.0
 pyflakes==2.0.0
 Pygments==2.2.0
 pyparsing==2.3.0
-pytest==3.10.0
+pytest==4.0.0
 pytest-cov==2.6.0
 pytest-runner==4.2
 pytz==2018.7
