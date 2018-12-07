@@ -13,7 +13,7 @@ codecov==2.0.15
 coverage==4.5.2
 docutils==0.14
 flake8==3.6.0
-idna==2.7
+idna==2.8
 imagesize==1.1.0
 Jinja2==2.10
 lxml==4.2.5
