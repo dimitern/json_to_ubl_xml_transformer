@@ -42,7 +42,7 @@ Sphinx==1.8.2
 sphinxcontrib-websupport==1.1.0
 toml==0.10.0
 tox==3.6.0
-tqdm==4.28.1
+tqdm==4.29.1
 twine==1.12.1
 urllib3==1.24.1
 virtualenv==16.1.0
