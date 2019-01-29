@@ -35,7 +35,7 @@ pytz==2018.9
 pyyaml==4.2b4
 readme-renderer==24.0
 requests==2.21.0
-requests-toolbelt==0.8.0
+requests-toolbelt==0.9.0
 six==1.12.0
 snowballstemmer==1.2.1
 Sphinx==1.8.3
