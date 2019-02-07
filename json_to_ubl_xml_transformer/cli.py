@@ -6,8 +6,7 @@ import os
 import sys
 
 import click
-
-from json_to_ubl_xml_transformer.constants import __version__
+from json_to_ubl_xml_transformer import __version__
 from json_to_ubl_xml_transformer.json_to_ubl_xml_transformer import (
     intermediate_json_to_xml,
     load_json,

@@ -2,6 +2,11 @@
 History
 =======
 
+0.1.1 (2019-02-07)
+------------------
+
+* Working JSON transformation with multiple input files.
+
 0.1.0 (2018-10-30)
 ------------------
 

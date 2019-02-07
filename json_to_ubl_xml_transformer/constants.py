@@ -1,7 +1,5 @@
 from collections import OrderedDict
 
-__version__ = "0.1.0"
-
 DEFAULT_ENCODING = "utf-8"
 FALLBACK_ENCODING = "utf-8-sig"
 
