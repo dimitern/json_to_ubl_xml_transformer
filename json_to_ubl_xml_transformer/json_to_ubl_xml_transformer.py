@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """Main module."""
-from __future__ import print_function, unicode_literals
+from __future__ import absolute_import, print_function, unicode_literals
 
 import codecs
 import json
@@ -11,8 +11,7 @@ from collections import OrderedDict
 import six
 from xmler import dict2xml
 
-DEFAULT_ENCODING = "utf-8"
-FALLBACK_ENCODING = "utf-8-sig"
+from json_to_ubl_xml_transformer.constants import DEFAULT_ENCODING, FALLBACK_ENCODING
 
 
 def escape_utf_8_chars(input_text):
@@ -85,7 +84,11 @@ def intermediate_json_to_xml(intermediate_json, output_xml=None):
     or if the latter is None, returns the XML as string.
     """
 
-    parsed_json = load_json(intermediate_json)
+    if isinstance(intermediate_json, six.string_types):
+        parsed_json = load_json(intermediate_json)
+    else:
+        parsed_json = intermediate_json
+
     output = replace_unescaped_utf_8_chars(
         unescape_utf_8_chars(
             dict2xml(parsed_json, encoding=DEFAULT_ENCODING, pretty=True)
