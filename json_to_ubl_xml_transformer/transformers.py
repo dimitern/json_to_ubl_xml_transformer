@@ -1,5 +1,5 @@
 from __future__ import absolute_import
-
+from copy import deepcopy
 import codecs
 import json
 from collections import OrderedDict
@@ -61,7 +61,7 @@ class JSONTransformer(object):
             item_dict[new_name] = self.transform_dict(item_dict[new_name])
             return item_dict
 
-        for name, item in six.iteritems(item_dict.copy()):
+        for name, item in six.iteritems(deepcopy(item_dict)):
             child_name = self.transform_name(name)
             if name.startswith(ATTRIBUTE_PREFIX) and name != VALUE_ATTRIBUTE:
                 if ATTRIBUTES not in item_dict:
@@ -93,7 +93,7 @@ class JSONTransformer(object):
         return item_dict
 
     def transform(self, input_json, output_json=None):
-        root = UBL_INVOICE_ROOT.copy()
+        root = deepcopy(UBL_INVOICE_ROOT)
         invoice = root["Invoice"]
         for name, item in six.iteritems(input_json["Invoice"]):
             item_name = self.transform_name(name)

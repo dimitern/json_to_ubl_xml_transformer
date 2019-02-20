@@ -2,6 +2,11 @@
 History
 =======
 
+0.1.3 (2019-02-20)
+------------------
+
+* Fixed an issue with garbage data appearing from previous transformations (with deepcopy()).
+
 0.1.2 (2019-02-07)
 ------------------
 
