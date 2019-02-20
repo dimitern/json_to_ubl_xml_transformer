@@ -12,7 +12,7 @@ Click==7.0
 codecov==2.0.15
 coverage==4.5.2
 docutils==0.14
-flake8==3.7.5
+flake8==3.7.6
 idna==2.8
 imagesize==1.1.0
 Jinja2==2.10
@@ -29,9 +29,9 @@ pycodestyle==2.5.0
 pyflakes==2.1.0
 Pygments==2.3.1
 pyparsing==2.3.1
-pytest==4.2.1
+pytest==4.3.0
 pytest-cov==2.6.1
-pytest-runner==4.2
+pytest-runner==4.4
 pytz==2018.9
 pyyaml==4.2b4
 readme-renderer==24.0
@@ -44,11 +44,11 @@ sphinxcontrib-websupport==1.1.0
 toml==0.10.0
 tox==3.7.0
 tqdm==4.31.1
-twine==1.12.1
+twine==1.13.0
 urllib3==1.24.1
 virtualenv==16.4.0
 watchdog==0.9.0
 webencodings==0.5.1
 xmldiff==2.2
 xmler==0.2.1
-wheel==0.33.0
+wheel==0.33.1
