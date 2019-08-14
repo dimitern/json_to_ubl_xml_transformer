@@ -4,14 +4,14 @@ DEFAULT_ENCODING = "utf-8"
 FALLBACK_ENCODING = "utf-8-sig"
 
 # Constants used in naming and formatting of intermediate JSON.
-LIST_ITEM = "{}__{}".format
 ATTRIBUTE_PREFIX = "_"
 VALUE_ATTRIBUTE = "__text"
 
+ATTRIBUTE = "@{}".format
+
 # Names of special intermediate JSON elements.
-ATTRIBUTES = "@attrs"
-VALUE = "@value"
-NAME = "@name"
+XML_NAMESPACES = "@xmlns"
+TEXT_CONTENT = "#text"
 
 # UBL Billing 3 Invoice intermediate JSON constants.
 BILLING_NAMESPACE = (
@@ -28,8 +28,9 @@ NAMESPACE = "{}:{{}}".format
 CBC = NAMESPACE("cbc").format
 CAC = NAMESPACE("cac").format
 
-XML_NS = "xmlns"
-XMLNS = "{}:{{}}".format(XML_NS).format
+NAMESPACES = OrderedDict(
+    [("cac", CAC_NAMESPACE), ("cbc", CBC_NAMESPACE), ("", INVOICE_NAMESPACE)]
+)
 
 UBL_INVOICE_ROOT = OrderedDict(
     [
@@ -37,16 +38,7 @@ UBL_INVOICE_ROOT = OrderedDict(
             "Invoice",
             OrderedDict(
                 [
-                    (
-                        ATTRIBUTES,
-                        OrderedDict(
-                            [
-                                (XMLNS("cac"), CAC_NAMESPACE),
-                                (XMLNS("cbc"), CBC_NAMESPACE),
-                                (XML_NS, INVOICE_NAMESPACE),
-                            ]
-                        ),
-                    ),
+                    (XML_NAMESPACES, NAMESPACES),
                     (CBC("CustomizationID"), BILLING_NAMESPACE),
                     (CBC("ProfileID"), PROFILE_NAMESPACE),
                 ]
@@ -54,6 +46,7 @@ UBL_INVOICE_ROOT = OrderedDict(
         )
     ]
 )
+
 
 CBC_ELEMENTS = (
     "AccountingCost",

@@ -2,54 +2,47 @@ from __future__ import absolute_import
 from copy import deepcopy
 import codecs
 import json
-from collections import OrderedDict
 
 import six
 
 from json_to_ubl_xml_transformer.constants import (
+    ATTRIBUTE,
     ATTRIBUTE_PREFIX,
-    ATTRIBUTES,
     CAC,
     CBC,
     CBC_ELEMENTS,
     DEFAULT_ENCODING,
-    LIST_ITEM,
-    NAME,
     UBL_INVOICE_ROOT,
-    VALUE,
+    TEXT_CONTENT,
     VALUE_ATTRIBUTE,
 )
-from json_to_ubl_xml_transformer.json_to_ubl_xml_transformer import escape_utf_8_chars
+
+from json_to_ubl_xml_transformer.utils import escape_utf_8_chars
 
 
 class JSONTransformer(object):
-    def transform_name(self, name, index=None):
+    def transform_name(self, name):
         if CBC("") in name or CAC("") in name:
-            return name if index is None else LIST_ITEM(name, index)
+            return name
 
         if name == VALUE_ATTRIBUTE:
-            return VALUE
+            return TEXT_CONTENT
 
         if name.startswith(ATTRIBUTE_PREFIX):
-            return name[1:]
+            return ATTRIBUTE(name[1:])
 
         if name in CBC_ELEMENTS:
-            return CBC(name) if index is None else LIST_ITEM(CBC(name), index)
+            return CBC(name)
 
-        return CAC(name) if index is None else LIST_ITEM(CAC(name), index)
+        return CAC(name)
 
-    def transform_list(self, parent_name, items):
-        base_name = self.transform_name(parent_name)
-        entries = OrderedDict()
-        for index, item in enumerate(items):
-            item_name = self.transform_name(parent_name, index)
-            entries[item_name] = OrderedDict(
-                [(NAME, base_name)]
-                + list(six.iteritems(self.transform_dict(item, index)))
-            )
-        return entries
+    def transform_list(self, item_list):
+        if not isinstance(item_list, list):
+            return item_list
 
-    def transform_dict(self, item_dict, index=None):
+        return [self.transform_dict(item) for item in item_list]
+
+    def transform_dict(self, item_dict):
         if not isinstance(item_dict, dict):
             return item_dict
 
@@ -64,29 +57,22 @@ class JSONTransformer(object):
         for name, item in six.iteritems(deepcopy(item_dict)):
             child_name = self.transform_name(name)
             if name.startswith(ATTRIBUTE_PREFIX) and name != VALUE_ATTRIBUTE:
-                if ATTRIBUTES not in item_dict:
-                    item_dict[ATTRIBUTES] = OrderedDict()
-
-                item_dict[ATTRIBUTES][child_name] = item
+                item_dict[child_name] = item
                 del item_dict[name]
 
             elif name == VALUE_ATTRIBUTE:
                 item_dict[self.transform_name(name)] = item
                 del item_dict[name]
 
-            elif isinstance(item, list):
-                for list_item_name, list_item in six.iteritems(
-                    self.transform_list(child_name, item)
-                ):
-                    item_dict[list_item_name] = list_item
-                del item_dict[name]
-
             elif isinstance(item, dict):
                 item_dict[child_name] = self.transform_dict(item)
                 del item_dict[name]
 
+            elif isinstance(item, list):
+                item_dict[child_name] = self.transform_list(item)
+                del item_dict[name]
+
             else:
-                assert isinstance(item, six.text_type)
                 item_dict[child_name] = item
                 del item_dict[name]
 
@@ -101,10 +87,7 @@ class JSONTransformer(object):
                 invoice[item_name] = self.transform_dict(item)
 
             elif isinstance(item, list):
-                for list_item_name, list_item in six.iteritems(
-                    self.transform_list(item_name, item)
-                ):
-                    invoice[list_item_name] = list_item
+                invoice[item_name] = self.transform_list(item)
 
             else:
                 invoice[item_name] = item

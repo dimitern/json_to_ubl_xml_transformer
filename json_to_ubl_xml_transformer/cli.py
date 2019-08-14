@@ -10,8 +10,8 @@ from json_to_ubl_xml_transformer import __version__
 from json_to_ubl_xml_transformer.json_to_ubl_xml_transformer import (
     intermediate_json_to_xml,
     load_json,
+    to_intermediate_json,
 )
-from json_to_ubl_xml_transformer.transformers import JSONTransformer
 
 
 @click.command(name="json_to_ubl_xml_transformer")
@@ -50,8 +50,7 @@ def main(ctx, input_jsons, output_dir):
 
         json = load_json(input_json)
         click.echo("Transforming to intermediate JSON...")
-        transformer = JSONTransformer()
-        intermediate_json = transformer.transform(json)
+        intermediate_json = to_intermediate_json(json)
 
         click.echo("Transforming to UBL XML: %s" % output_xml)
         intermediate_json_to_xml(intermediate_json, output_xml)
@@ -60,4 +59,4 @@ def main(ctx, input_jsons, output_dir):
 
 
 if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+    sys.exit(main())  # pragma: nocover
