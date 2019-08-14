@@ -1,9 +1,9 @@
 {
     "Invoice": {
-        "@attrs": {
-            "xmlns:cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
-            "xmlns:cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
-            "xmlns": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+        "@xmlns": {
+            "cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+            "cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+            "": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
         },
         "cbc:CustomizationID": "urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0",
         "cbc:ProfileID": "urn:fdc:peppol.eu:2017:poacc:billing:01:1.0",
@@ -15,10 +15,8 @@
         "cac:AccountingSupplierParty": {
             "cac:Party": {
                 "cbc:EndpointID": {
-                    "@attrs": {
-                        "schemeID": "0007"
-                    },
-                    "@value": "1234567890"
+                    "@schemeID": "0007",
+                    "#text": "1234567890"
                 },
                 "cac:PostalAddress": {
                     "cac:Country": {
@@ -34,10 +32,8 @@
         "cac:AccountingCustomerParty": {
             "cac:Party": {
                 "cbc:EndpointID": {
-                    "@attrs": {
-                        "schemeID": "0007"
-                    },
-                    "@value": "9876543210"
+                    "@schemeID": "0007",
+                    "#text": "9876543210"
                 },
                 "cac:PostalAddress": {
                     "cac:Country": {
@@ -51,23 +47,17 @@
         },
         "cac:TaxTotal": {
             "cbc:TaxAmount": {
-                "@attrs": {
-                    "currencyID": "SEK"
-                },
-                "@value": "0"
+                "@currencyID": "SEK",
+                "#text": "0"
             },
             "cac:TaxSubtotal": {
                 "cbc:TaxableAmount": {
-                    "@attrs": {
-                        "currencyID": "SEK"
-                    },
-                    "@value": "400"
+                    "@currencyID": "SEK",
+                    "#text": "400"
                 },
                 "cbc:TaxAmount": {
-                    "@attrs": {
-                        "currencyID": "SEK"
-                    },
-                    "@value": "0"
+                    "@currencyID": "SEK",
+                    "#text": "0"
                 },
                 "cac:TaxCategory": {
                     "cbc:ID": "O",
@@ -80,49 +70,35 @@
         },
         "cac:LegalMonetaryTotal": {
             "cbc:LineExtensionAmount": {
-                "@attrs": {
-                    "currencyID": "SEK"
-                },
-                "@value": "400"
+                "@currencyID": "SEK",
+                "#text": "400"
             },
             "cbc:TaxExclusiveAmount": {
-                "@attrs": {
-                    "currencyID": "SEK"
-                },
-                "@value": "400"
+                "@currencyID": "SEK",
+                "#text": "400"
             },
             "cbc:TaxInclusiveAmount": {
-                "@attrs": {
-                    "currencyID": "SEK"
-                },
-                "@value": "400"
+                "@currencyID": "SEK",
+                "#text": "400"
             },
             "cbc:PrepaidAmount": {
-                "@attrs": {
-                    "currencyID": "SEK"
-                },
-                "@value": "400"
+                "@currencyID": "SEK",
+                "#text": "400"
             },
             "cbc:PayableAmount": {
-                "@attrs": {
-                    "currencyID": "SEK"
-                },
-                "@value": "0"
+                "@currencyID": "SEK",
+                "#text": "0"
             }
         },
         "cac:InvoiceLine": {
             "cbc:ID": "1",
             "cbc:InvoicedQuantity": {
-                "@attrs": {
-                    "unitCode": "MON"
-                },
-                "@value": "1"
+                "@unitCode": "MON",
+                "#text": "1"
             },
             "cbc:LineExtensionAmount": {
-                "@attrs": {
-                    "currencyID": "SEK"
-                },
-                "@value": "400"
+                "@currencyID": "SEK",
+                "#text": "400"
             },
             "cac:Item": {
                 "cbc:Name": "Guarantee fee",
@@ -135,10 +111,8 @@
             },
             "cac:Price": {
                 "cbc:PriceAmount": {
-                    "@attrs": {
-                        "currencyID": "SEK"
-                    },
-                    "@value": "400"
+                    "@currencyID": "SEK",
+                    "#text": "400"
                 }
             }
         }

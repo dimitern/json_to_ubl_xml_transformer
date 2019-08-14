@@ -2,6 +2,14 @@
 History
 =======
 
+0.1.4 (2019-08-14)
+------------------
+
+* Removed `xmler` dependency, simplified, and re-implemented the logic using `xmltodict`.
+* Added more tests, including for the CLI and increased tests coverage over 96%.
+* Added Python 3.8 to supported versions.
+* Removed Python 3.4 from supported versions.
+
 0.1.3 (2019-02-20)
 ------------------
 

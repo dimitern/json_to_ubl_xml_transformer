@@ -31,6 +31,7 @@ setup(
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
     ],
     description=(
         "Converts JSON input files to PEPPOL BIS 3.0 "
@@ -52,6 +53,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/dimitern/json_to_ubl_xml_transformer",
-    version="0.1.3",
+    version="0.2.0",
     zip_safe=False,
 )
