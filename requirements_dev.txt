@@ -39,7 +39,7 @@ readme-renderer==24.0
 requests==2.22.0
 requests-toolbelt==0.9.1
 six==1.12.0
-snowballstemmer==1.9.0
+snowballstemmer==1.9.1
 Sphinx==1.8.5; python_version <= '3.4' # pyup: >=1.8.5,<2.0.0
 Sphinx==2.2.0; python_version >= '3.5'
 sphinxcontrib-websupport==1.1.2
