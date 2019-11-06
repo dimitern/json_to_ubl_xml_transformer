@@ -38,7 +38,7 @@ pyyaml==5.1.2
 readme-renderer==24.0
 requests==2.22.0
 requests-toolbelt==0.9.1
-six==1.12.0
+six==1.13.0
 snowballstemmer==2.0.0
 Sphinx==1.8.5; python_version <= '3.4' # pyup: >=1.8.5,<2.0.0
 Sphinx==2.2.1; python_version >= '3.5'
