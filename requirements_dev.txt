@@ -44,7 +44,7 @@ Sphinx==1.8.5; python_version <= '3.4' # pyup: >=1.8.5,<2.0.0
 Sphinx==2.2.1; python_version >= '3.5'
 sphinxcontrib-websupport==1.1.2
 toml==0.10.0
-tox==3.14.0
+tox==3.14.1
 tqdm==4.38.0
 twine<2.0.0; python_version < '3.6' # pyup: <2.0.0
 twine==2.0.0; python_version >= '3.6'
