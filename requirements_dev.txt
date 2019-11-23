@@ -49,7 +49,7 @@ tqdm==4.39.0
 twine<2.0.0; python_version < '3.6' # pyup: <2.0.0
 twine==3.0.0; python_version >= '3.6'
 urllib3==1.25.7
-virtualenv==16.7.7
+virtualenv==16.7.8
 watchdog==0.9.0
 webencodings==0.5.1
 xmldiff==2.4
