@@ -30,7 +30,7 @@ pyflakes==2.1.1
 Pygments==2.5.2
 pyparsing==2.4.6
 pytest==4.6.9; python_version <= '2.7' # pyup: >=4.6.4,<5.0.0
-pytest==5.3.2; python_version >= '3'
+pytest==5.3.3; python_version >= '3'
 pytest-cov==2.8.1
 pytest-runner==5.2
 pytz==2019.3
