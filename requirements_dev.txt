@@ -15,7 +15,7 @@ docutils==0.16
 flake8==3.7.9
 idna==2.8
 imagesize==1.2.0
-Jinja2==2.10.3
+Jinja2==2.11.0
 lxml==4.4.2
 MarkupSafe==1.1.1
 mccabe==0.6.1
