@@ -27,7 +27,7 @@ pluggy==0.13.1
 py==1.8.1
 pycodestyle==2.5.0
 pyflakes==2.1.1
-Pygments==2.5.2; python_version <= '2.7' # pyup: >=2.5.2,<2.6.1
+Pygments==2.6.0; python_version <= '2.7' # pyup: >=2.5.2,<2.6.1
 Pygments==2.6.1; python_version >= '3'
 pyparsing==2.4.6
 pytest==4.6.9; python_version <= '2.7' # pyup: >=4.6.4,<5.0.0
