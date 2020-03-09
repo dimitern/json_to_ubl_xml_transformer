@@ -8,7 +8,7 @@ bleach==3.1.1
 bumpversion==0.5.3
 certifi==2019.11.28
 chardet==3.0.4
-Click==7.0
+Click==7.1
 codecov==2.0.16
 coverage==5.0.3
 docutils==0.16
