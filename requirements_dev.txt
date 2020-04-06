@@ -29,7 +29,7 @@ pycodestyle==2.5.0
 pyflakes==2.1.1
 Pygments==2.5.2; python_version <= '2.7' # pyup: >=2.5.2,<2.6.0
 Pygments==2.6.1; python_version >= '3'
-pyparsing==2.4.6
+pyparsing==2.4.7
 pytest==4.6.9; python_version <= '2.7' # pyup: >=4.6.4,<5.0.0
 pytest==5.4.1; python_version >= '3'
 pytest-cov==2.8.1
