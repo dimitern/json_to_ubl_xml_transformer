@@ -19,11 +19,6 @@ JSON to UBL XML Transformer
         :target: https://json-to-ubl-xml-transformer.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://pyup.io/repos/github/dimitern/json_to_ubl_xml_transformer/shield.svg
-        :target: https://pyup.io/repos/github/dimitern/json_to_ubl_xml_transformer/
-        :alt: Updates
-
-
 Converts JSON input files to PEPPOL BIS 3.0 Invoice UBL XML outputs and validates them
 
 
@@ -41,8 +36,5 @@ Credits
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
-Dependencies scanned by PyUp.io_
-
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
-.. _PyUp.io: https://pyup.io
