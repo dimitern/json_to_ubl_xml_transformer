@@ -24,7 +24,7 @@ more-itertools==8.2.0; python_version >= '3'
 packaging==20.3
 pkginfo==1.5.0.1
 pluggy==0.13.1
-py==1.8.1
+py==1.10.0
 pycodestyle==2.5.0
 pyflakes==2.2.0
 Pygments==2.5.2; python_version <= '2.7' # pyup: >=2.5.2,<2.6.0
