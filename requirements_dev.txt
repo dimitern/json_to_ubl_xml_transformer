@@ -50,7 +50,7 @@ tox==3.15.0
 tqdm==4.46.0
 twine<2.0.0; python_version < '3.6' # pyup: <2.0.0
 twine==3.1.1; python_version >= '3.6'
-urllib3==1.25.9
+urllib3==1.26.5
 virtualenv==20.0.18
 watchdog==0.10.2
 webencodings==0.5.1
